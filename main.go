@@ -3,6 +3,7 @@ package main
 import (
 	"practice/channels"
 	"practice/concurrency"
+	"practice/errors"
 	"practice/generics"
 	"practice/lib"
 	"practice/mypointers"
@@ -84,5 +85,17 @@ func main() {
 		channels.Ex16()
 		channels.Ex17()
 		channels.Ex18()
+	case 34:
+		errors.Ex1("p") // fmt.println
+	case 35:
+		errors.Ex1("l") //log.Prntln
+	case 36:
+		errors.Ex1("f") // log.Fatalln
+	case 37:
+		errors.Ex1("i") // panic
+	case 38:
+		errors.Ex2()
+	case 39:
+		errors.Ex3()
 	}
 }
