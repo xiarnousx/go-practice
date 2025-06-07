@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"practice/channels"
 	"practice/concurrency"
+	docexample "practice/doc-example"
 	"practice/errors"
 	"practice/generics"
 	"practice/lib"
@@ -101,5 +103,8 @@ func main() {
 		errors.Ex4()
 	case 41:
 		errors.Ex5()
+	case 42:
+		s := docexample.DocIt()
+		fmt.Println(s)
 	}
 }
