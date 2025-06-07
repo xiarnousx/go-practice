@@ -1,10 +1,12 @@
 package errors
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"log"
 	"math"
+	"math/rand/v2"
 	"os"
 )
 
@@ -60,4 +62,49 @@ func Ex3() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+}
+
+func Ex4() {
+	p1 := struct {
+		First string
+		Last  string
+	}{
+		First: "X",
+		Last:  "Y",
+	}
+	bs, err := toJson(p1)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println(string(bs))
+}
+
+func toJson(a any) ([]byte, error) {
+	bs, err := json.Marshal(a)
+	if err != nil {
+		return []byte{}, fmt.Errorf("[ERROR]: %v", err)
+	}
+	return bs, nil
+}
+
+type errorRandom struct {
+	random int
+	err    error
+}
+
+func (e errorRandom) Error() string {
+	return fmt.Sprintf("[ERROR] [%v]: %v", e.random, e.err)
+}
+
+func foo(e error) {
+	log.Println(e)
+}
+
+func Ex5() {
+	e1 := errorRandom{
+		random: rand.IntN(100),
+		err:    errors.New("traverse the universe"),
+	}
+	foo(e1)
 }

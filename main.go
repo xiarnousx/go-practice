@@ -97,5 +97,9 @@ func main() {
 		errors.Ex2()
 	case 39:
 		errors.Ex3()
+	case 40:
+		errors.Ex4()
+	case 41:
+		errors.Ex5()
 	}
 }
