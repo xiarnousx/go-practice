@@ -107,6 +107,9 @@ func main() {
 		s := docexample.DocIt()
 		fmt.Println(s)
 	case 43:
-		fmt.Println(testexample.Greet("James"))
+		channels.Ex19()
+	case 44:
+		channels.Ex20()
+
 	}
 }
